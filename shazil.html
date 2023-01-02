@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html live testing</title>
+    <script>
+        function rr(){
+        let dt = new Date()
+        let time = {minutes : dt.getMinutes(), hour : dt.getHours(), second:dt.getSeconds() , date:dt.getDate(),year:dt.getFullYear(), month:dt.getMonth()}
+        if(time.hour > 12){
+            time.hour = time.hour - 12
+        }
+        time.hour = time.hour <= 9 ? "0"+time.hour:time.hour
+        time.minutes = time.minutes <= 9 ? "0"+time.minutes:time.minutes
+        time.second = time.second <= 9 ? "0"+time.second:time.second
+        document.getElementById("show").innerHTML=time.hour+":"+time.minutes+":"+time.second
+        document.getElementById("date").innerHTML=time.date+"/"+time.month+"/"+time.year
+        }
+        setInterval(rr,1000)
+    </script>
+</head>
+<body style="background-color: rgba(11, 204, 194, 0.507);">
+    <h1 id="show"></h1>
+    <p id="date"></p>
+    <!-- <p id="demo"></p> -->
+    <!-- <script>
+        sum = 1
+        count = 2
+        function working(){
+            document.write('<code style="color:white; background-color:black; font-size:20;"> Thwaha <h4 style="color:green; display:inline;">'+count+'</h1></code>')
+            sum = sum + 1;
+            count = count + 2;       
+            if(sum > 10){
+                sum = sum - 10
+            document.write('<br>')
+        }
+        }
+
+
+
+            // setTimeout(working,6000)
+            setTimeout(() => {
+                setInterval(working,1000)
+                
+            }, 6000);
+            // setInterval(working,1000);
+    
+    </script> -->
+</body>
+</html>
