@@ -1,0 +1,48 @@
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light bg-color">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="/">Shopping cart User</a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Products <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/cart">Cart <span style="font-size: 14px;" class="badge badge-pill badge-primary" id="cart-count">{{cartCount}}</span></a>
+                    </li>
+                    {{#if user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/orders">Orders</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Orders</a>
+                    </li>
+                    {{/if}}
+                
+                </ul>
+<div class="btn-group" style="margin-right: 10px;">
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{#if user}}
+    {{user.Username}}
+    {{else}}
+    Account
+    {{/if}}
+
+  </button>
+  <div class="dropdown-menu">
+        {{#if user}}
+        <a class="dropdown-item" onclick="logoutUser()">Logout</a>
+    {{else}}
+        <a class="dropdown-item" href="/login">Login</a>
+    {{/if}}
+    {{!-- <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div> --}}
+</div>
+            </div>
+        </nav>
+    </header>

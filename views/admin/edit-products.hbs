@@ -1,0 +1,39 @@
+<section>
+    <div class="container">
+        <form class="mt-4" action="/admin/edit-products{{product._id}}"  method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Product</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" name="Product" value="{{product.Product}}" placeholder="Product">
+    <label for="formGroupExampleInput2">Catagory</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="Catagory" value="{{product.Catagory}}" placeholder="Catagory">
+    <label for="formGroupExampleInput2">Description</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="Description" value="{{product.Description}}" placeholder="Description">
+    {{!-- <div for="" id="msg"></div><br> --}}
+    <img src="/product_images/{{product._id}}.jpg" style="width: 100px; height:auto;" alt="{{product.Product}}" id="imageView"><br><br>
+    {{!-- <div id="imageClass">
+    </div> --}}
+
+    <label for="formGroupExampleInput2">Choose images</label>
+    <input type="file" class="form-control" id="formGroupExampleInput2" name="getImages" onchange="viewImage(event)">
+    <label for="formGroupExampleInput2">Price</label>
+    <input type="number" name="Price" class="form-control" placeholder="Price" value="{{product.Price}}"><br>
+    <input type="submit" class="form-control  btn-success" id="formGroupExampleInput btn" placeholder="Example input">
+
+  </div>
+</form>
+    </div>
+</section>
+<script>
+  function viewImage(event){
+      if(URL.createObjectURL(event.target.files[0])){
+    console.log('true')
+    // document.getElementById('imageClass').innerHTML='<div class="alert alert-success"><label >New select image</label></div><br><img src="" style="width: 100px; height:auto;" alt="Please choose correct image" id="imageView">'
+    //document.getElementById('msg').innerHTML="<div style='margin:0;' class='alert alert-warning'><label >Older Image</label></div>"
+    document.getElementById('imageView').src=URL.createObjectURL(event.target.files[0]);
+
+  }else{
+    console.log('fakljflkj')
+  }
+  }
+
+</script>
